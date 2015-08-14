@@ -1,4 +1,5 @@
 ##.gitignore
+*.recommenders
 *.classpath
 *.project
 .settings/
