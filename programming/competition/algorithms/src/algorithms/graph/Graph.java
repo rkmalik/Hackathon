@@ -3,17 +3,26 @@ package algorithms.graph;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.Validate;
 
 public class Graph<T> implements BaseGraph<T> {
 
-    HashMap<T, List<Edge<T>>> adjList;
-    HashMap<T, Vertex<T>> vertices;
+    private HashMap<T, List<Edge<T>>> adjList;
+    private HashMap<T, Vertex<T>> vertices;
 
     public Graph() {
         adjList = new HashMap<T, List<Edge<T>>>();
         vertices = new HashMap<T, Vertex<T>>();
+    }
+    
+    public HashMap<T, Vertex<T>> getVertices () {
+        return vertices;
+    }
+    
+    public HashMap<T, List<Edge<T>>> getAdjList () {
+        return adjList;
     }
 
     public void addVertex(
@@ -67,18 +76,40 @@ public class Graph<T> implements BaseGraph<T> {
             return null;
         }
         
-        for (Edge edge : list) {
+        for (Edge<T> edge : list) {
             
-            if (edge.)
+            if(edge.getToVertex().equals(toVertex)) {
+                return edge;
+            }
         }
-        
-        
 
         return null;
     }
+    
+    public void clearAll () {
+        for (Map.Entry<T, Vertex<T>> entry : vertices.entrySet()) {
+            entry.getValue().setVisited(false);
+        }
+    }
 
     public String toString() {
-        return null;
+        
+        String display = "";
+        
+        for (Map.Entry<T, List<Edge<T>>> entry : adjList.entrySet()) {
+            
+            display += "From -> " + entry.getKey() + " ";
+            
+            List<Edge<T>> list = entry.getValue();
+            
+            for (Edge<T> edge : list) {
+                display += " to " + edge.getToVertex();
+            }
+            
+            display += "\n\n";
+        }
+        
+        return display;
     }
 
 }

@@ -1,8 +1,6 @@
 package algorithms.graph;
 
 import org.apache.commons.lang3.Validate;
-import org.apache.commons.validator.Validator;
-import org.apache.commons.validator.util.ValidatorUtils;
 
 /**
  * Edge class holds the information about the starting of the edge and ending of the edge. That means it holds from
@@ -22,7 +20,7 @@ public class Edge<T> {
             int weight) {
 
         /**
-         * None of the vertice can not be null
+         * None of the vertices can not be null
          */
         Validate.notNull(fromVertex, "from Vertex can not be ", fromVertex);
         Validate.notNull(toVertex, "to Vertex can not be ", toVertex);
@@ -31,8 +29,16 @@ public class Edge<T> {
         this.toVertex = toVertex;
         this.weight = weight;
     }
+    
+    public T getFromVertex() {
+        return fromVertex;
+    }
 
-    private int getWeight() {
+    public T getToVertex() {
+        return toVertex;
+    }
+    
+    public int getWeight() {
         return weight;
     }
 
