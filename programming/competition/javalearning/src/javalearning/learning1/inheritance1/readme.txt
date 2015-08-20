@@ -1,4 +1,4 @@
-This class is to learn how to create an instance without the use of the new
+This class creates an instance without the use of the new
 instance.
 
 This usess 
