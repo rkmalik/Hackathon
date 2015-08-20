@@ -1,17 +1,17 @@
-package algorithms.graph;
+package algorithms.ds.graph;
 
 /**
  * This class holds information about a particular node in the graph. Each node contains data information.
  * 
  */
-public class Vertex<T> {
+public class Vertex<E> {
 
-    private T data;
+    private E data;
     private boolean isVisited;
     
 
     public Vertex(
-            T data) {
+            E data) {
         this.data = data;
         this.isVisited = false;
     }

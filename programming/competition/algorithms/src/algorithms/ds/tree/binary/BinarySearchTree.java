@@ -1,4 +1,4 @@
-package algorithms.tree.binary;
+package algorithms.ds.tree.binary;
 
 /**
  * This is the library class which provides the Tree data structure functionality.

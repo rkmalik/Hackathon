@@ -1,4 +1,4 @@
-package algorithms.graph;
+package algorithms.ds.graph;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -7,26 +7,26 @@ import java.util.Map;
 
 import org.apache.commons.lang3.Validate;
 
-public class Graph<T> implements BaseGraph<T> {
+public class Graph<E> implements BaseGraph<E> {
 
-    private HashMap<T, List<Edge<T>>> adjList;
-    private HashMap<T, Vertex<T>> vertices;
+    private HashMap<E, List<Edge<E>>> adjList;
+    private HashMap<E, Vertex<E>> vertices;
 
     public Graph() {
-        adjList = new HashMap<T, List<Edge<T>>>();
-        vertices = new HashMap<T, Vertex<T>>();
+        adjList = new HashMap<E, List<Edge<E>>>();
+        vertices = new HashMap<E, Vertex<E>>();
     }
     
-    public HashMap<T, Vertex<T>> getVertices () {
+    public HashMap<E, Vertex<E>> getVertices () {
         return vertices;
     }
     
-    public HashMap<T, List<Edge<T>>> getAdjList () {
+    public HashMap<E, List<Edge<E>>> getAdjList () {
         return adjList;
     }
 
     public void addVertex(
-            T vertex) {
+            E vertex) {
 
         Validate.notNull(vertex, "Vertex can not be ", vertex);
 
@@ -35,29 +35,29 @@ public class Graph<T> implements BaseGraph<T> {
          * present.
          */
         if (vertices.get(vertex) == null) {
-            vertices.put(vertex, new Vertex<T>(vertex));
+            vertices.put(vertex, new Vertex<E>(vertex));
             // Create an entry in the adjacency list for vertex
-            adjList.put(vertex, new LinkedList<Edge<T>>());
+            adjList.put(vertex, new LinkedList<Edge<E>>());
         }
     }
 
     public void addEdge(
-            T fromVertex,
-            T toVertex, int weight) {
+            E fromVertex,
+            E toVertex, int weight) {
         
         Validate.notNull(fromVertex, "from Vertex can not be ", fromVertex);
         Validate.notNull(toVertex, "to Vertex can not be ", toVertex);
         
-        List<Edge<T>> list = adjList.get(fromVertex);
+        List<Edge<E>> list = adjList.get(fromVertex);
 
-        Edge<T> edge = new Edge<T>(fromVertex, toVertex, weight);
+        Edge<E> edge = new Edge<E>(fromVertex, toVertex, weight);
         
         list.add(edge);
     }
 
     public boolean hasEdge(
-            T fromVertex,
-            T toVertex) {
+            E fromVertex,
+            E toVertex) {
         
         if (getEdge(fromVertex, toVertex) != null)
             return true;
@@ -65,18 +65,18 @@ public class Graph<T> implements BaseGraph<T> {
         return false;
     }
 
-    public Edge<T> getEdge(
-            T fromVertex,
-            T toVertex) {
+    public Edge<E> getEdge(
+            E fromVertex,
+            E toVertex) {
         
         // First retrieve the list of all the edges attached to the fromVertex
-        List<Edge<T>> list = adjList.get(fromVertex);
+        List<Edge<E>> list = adjList.get(fromVertex);
         
         if (list == null) {
             return null;
         }
         
-        for (Edge<T> edge : list) {
+        for (Edge<E> edge : list) {
             
             if(edge.getToVertex().equals(toVertex)) {
                 return edge;
@@ -87,7 +87,7 @@ public class Graph<T> implements BaseGraph<T> {
     }
     
     public void clearAll () {
-        for (Map.Entry<T, Vertex<T>> entry : vertices.entrySet()) {
+        for (Map.Entry<E, Vertex<E>> entry : vertices.entrySet()) {
             entry.getValue().setVisited(false);
         }
     }
@@ -96,13 +96,13 @@ public class Graph<T> implements BaseGraph<T> {
         
         String display = "";
         
-        for (Map.Entry<T, List<Edge<T>>> entry : adjList.entrySet()) {
+        for (Map.Entry<E, List<Edge<E>>> entry : adjList.entrySet()) {
             
             display += "From -> " + entry.getKey() + " ";
             
-            List<Edge<T>> list = entry.getValue();
+            List<Edge<E>> list = entry.getValue();
             
-            for (Edge<T> edge : list) {
+            for (Edge<E> edge : list) {
                 display += " to " + edge.getToVertex();
             }
             

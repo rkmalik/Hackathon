@@ -1,4 +1,4 @@
-package algorithms.tree.binary;
+package algorithms.ds.tree.binary;
 
 /**end of data we are going to store in the tree.
  */

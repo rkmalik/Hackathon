@@ -1,23 +1,16 @@
-package algorithms.graph;
+package algorithms.ds.graph;
 
 import java.util.List;
 import java.util.Map;
 
-public class DepthFirstSearch<T> {
+public class DepthFirstSearch<E> {
     
-    Graph<T> graph;
-    
-    public DepthFirstSearch (Graph<T> graph) {
-        this.graph = graph;
-    }
-    
-    
-    public void DFS (T src) {
+    public static <E> void DFS (Graph<E> graph, E src) {
         
-        for (Map.Entry<T, List<Edge<T>>> entry : graph.getAdjList().entrySet()) {
+        for (Map.Entry<E, List<Edge<E>>> entry : graph.getAdjList().entrySet()) {
             
             if (graph.getVertices().get(entry.getKey()).isVisited() == false) {     
-                DFS_Visited(entry.getKey(), entry.getValue());
+                DFS_Visited(graph, entry.getKey(), entry.getValue());
             }
             
         }
@@ -26,18 +19,18 @@ public class DepthFirstSearch<T> {
         graph.clearAll();
     }
     
-    private void DFS_Visited (T fromNode, List<Edge<T>> list) {
+    private static <E> void DFS_Visited (Graph<E> graph, E fromNode, List<Edge<E>> list) {
         
         System.out.println("Node Visited : " + fromNode);
         graph.getVertices().get(fromNode).setVisited(true);
         
-        for (Edge<T> edge : list) {
+        for (Edge<E> edge : list) {
             
-            T from = edge.getFromVertex();
+            E from = edge.getFromVertex();
             
             if (graph.getVertices().get(from).isVisited() == false) {
                 
-                DFS_Visited (from, graph.getAdjList().get(from));
+                DFS_Visited (graph, from, graph.getAdjList().get(from));
             }
         }
     }

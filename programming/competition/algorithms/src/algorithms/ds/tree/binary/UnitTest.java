@@ -1,4 +1,4 @@
-package algorithms.tree.binary;
+package algorithms.ds.tree.binary;
 
 import java.util.Random;
 import java.util.Scanner;

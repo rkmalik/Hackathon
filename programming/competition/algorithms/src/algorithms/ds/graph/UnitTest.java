@@ -1,4 +1,4 @@
-package algorithms.graph;
+package algorithms.ds.graph;
 
 import java.util.Random;
 
@@ -23,10 +23,6 @@ public class UnitTest {
         
         System.out.println(graph);
 
-        DepthFirstSearch dfs = new DepthFirstSearch (graph);
-        
-        dfs.DFS(0);
-        
-        
+        DepthFirstSearch.DFS(graph, 0);
     }
 }

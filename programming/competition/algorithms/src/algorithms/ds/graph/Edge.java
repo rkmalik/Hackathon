@@ -1,4 +1,4 @@
-package algorithms.graph;
+package algorithms.ds.graph;
 
 import org.apache.commons.lang3.Validate;
 
@@ -8,15 +8,15 @@ import org.apache.commons.lang3.Validate;
  * template based class can hold any type of data.
  * 
  */
-public class Edge<T> {
+public class Edge<E> {
 
-    private T fromVertex;
-    private T toVertex;
+    private E fromVertex;
+    private E toVertex;
     private int weight;
 
     public Edge(
-            T fromVertex,
-            T toVertex,
+            E fromVertex,
+            E toVertex,
             int weight) {
 
         /**
@@ -30,11 +30,11 @@ public class Edge<T> {
         this.weight = weight;
     }
     
-    public T getFromVertex() {
+    public E getFromVertex() {
         return fromVertex;
     }
 
-    public T getToVertex() {
+    public E getToVertex() {
         return toVertex;
     }
     
