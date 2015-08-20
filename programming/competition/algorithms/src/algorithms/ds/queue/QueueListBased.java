@@ -1,5 +1,7 @@
 package algorithms.ds.queue;
 
+import algorithms.common.ListNode;
+
 public class QueueListBased<E> implements BaseQueue<E> {
 
     int size;
@@ -12,7 +14,7 @@ public class QueueListBased<E> implements BaseQueue<E> {
         tail = null;
     }
     
-    public int getSize() {
+    public int size() {
         return size;
     }
 
@@ -29,8 +31,8 @@ public class QueueListBased<E> implements BaseQueue<E> {
             return null;
 
         ListNode<E> front = head;
-        head = head.next;
-        front.next = null;
+        head = head.getNext();
+        front.setNext(null);
 
         size--;
 
@@ -53,8 +55,8 @@ public class QueueListBased<E> implements BaseQueue<E> {
             head = node;
             tail = node;
         } else {
-            tail.next = node;
-            tail = tail.next;
+            tail.setNext(node);
+            tail = tail.getNext();
         }
 
         size++;
@@ -66,7 +68,7 @@ public class QueueListBased<E> implements BaseQueue<E> {
         return size == 0 ? true : false;
     }
 
-    public E getFirst() {
+    public E peek() {
         return head.getData();
     }
     
@@ -76,7 +78,7 @@ public class QueueListBased<E> implements BaseQueue<E> {
         queueInfo = String.format("%s \n", queueInfo);
         
         
-        for (ListNode<E> node = head; node != null; node = node.next) {
+        for (ListNode<E> node = head; node != null; node = node.getNext()) {
             queueInfo = String.format("%s||%s||->", queueInfo, node.getData());
         }
         return queueInfo;

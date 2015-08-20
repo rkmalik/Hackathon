@@ -15,6 +15,8 @@ public interface BaseQueue<E> {
             E element);
 
     public boolean isEmpty();
+    
+    public int size();
 
-    public E getFirst();
+    public E peek();
 }

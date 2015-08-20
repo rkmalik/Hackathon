@@ -1,8 +1,6 @@
 package algorithms.ds.tree.binary;
 
 import java.util.Random;
-import java.util.Scanner;
-import java.lang.Object;
 
 /**
  * This class creates a new tree and prepares all the nodes of the tree. This performs different tree operations based
@@ -74,7 +72,7 @@ public class UnitTest {
 
             }
         }
-        
+
         System.out.println("\n\n");
         tree.inOrder(tree.getRoot());
         System.out.println("\n\n");
@@ -83,8 +81,7 @@ public class UnitTest {
         tree.postOrder(tree.getRoot());
 
     }
-    
-    
+
     /*
      * public static void integerBasedTree () { Random randGenerator = new Random(); }
      * 

@@ -1,4 +1,4 @@
-package algorithms.ds.queue;
+package algorithms.common;
 
 /**
  * Simple Node class holding the data and the reference to the next node.
@@ -6,6 +6,7 @@ package algorithms.ds.queue;
 public class ListNode<E> {
 
     private E data;
+    
     ListNode<E> next;
 
     public ListNode(

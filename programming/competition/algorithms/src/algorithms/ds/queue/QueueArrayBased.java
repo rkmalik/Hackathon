@@ -20,7 +20,7 @@ public class QueueArrayBased<E> implements BaseQueue<E> {
         this.size = 0;
     }
     
-    public int getSize() {
+    public int size() {
         return size;
     }
 
@@ -87,7 +87,22 @@ public class QueueArrayBased<E> implements BaseQueue<E> {
         return size == 0 ? true : false;
     }
 
-    public E getFirst() {
+    public String toString() {
+        
+        String queueInfo = "Queue : \n";
+        queueInfo = String.format("%s \n", queueInfo);
+        
+        for (int i = 0; i < items.length; i++) {
+            
+            queueInfo = String.format("%s||%s||->", queueInfo, items[i]);
+            
+        }
+        
+        return queueInfo;
+        
+    }
+    
+    public E peek() {
 
         if (head == -1)
             return null;
