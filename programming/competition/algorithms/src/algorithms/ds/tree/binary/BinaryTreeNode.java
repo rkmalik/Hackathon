@@ -6,48 +6,59 @@ public class BinaryTreeNode<T> {
     private BinaryTreeNode<T> leftChild;
     private BinaryTreeNode<T> rightChild;
     private BinaryTreeNode<T> parent;
-
+    int height;
+    
     public BinaryTreeNode(
             T data) {
         this.data = data;
         this.leftChild = null;
         this.rightChild = null;
         this.parent = null;
+        height = 0;
     }
 
-    T getData() {
+    public T getData() {
         return data;
     }
 
-    void setData(
+    public void setData(
             T data) {
         this.data = data;
     }
 
-    BinaryTreeNode<T> getLeftChild() {
+    public BinaryTreeNode<T> getLeftChild() {
         return leftChild;
     }
 
-    void setLeftChild(
+    public void setLeftChild(
             BinaryTreeNode<T> leftChild) {
         this.leftChild = leftChild;
     }
 
-    BinaryTreeNode<T> getRightChild() {
+    public BinaryTreeNode<T> getRightChild() {
         return rightChild;
     }
 
-    void setRightChild(
+    public void setRightChild(
             BinaryTreeNode<T> rightChild) {
         this.rightChild = rightChild;
     }
 
-    BinaryTreeNode<T> getParent() {
+    public BinaryTreeNode<T> getParent() {
         return parent;
     }
 
-    void setParent(
+    public void setParent(
             BinaryTreeNode<T> parent) {
         this.parent = parent;
     }
+    
+    public int getHeight () {
+        return height;
+    }
+    
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    
 }

@@ -81,16 +81,4 @@ public class UnitTest {
         tree.postOrder(tree.getRoot());
 
     }
-
-    /*
-     * public static void integerBasedTree () { Random randGenerator = new Random(); }
-     * 
-     * public static void doubleBasedTree () { Random randGenerator = new Random(); }
-     * 
-     * public static void stringBasedTree () { Random randGenerator = new Random(); }
-     * 
-     * public static display (BinarySearchTree tree) {
-     * 
-     * }
-     */
 }
