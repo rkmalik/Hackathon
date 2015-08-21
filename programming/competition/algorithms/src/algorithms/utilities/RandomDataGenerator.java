@@ -10,18 +10,15 @@ public class RandomDataGenerator {
 
     public static Random rand = new Random();
 
-    public static int getRandomInteger() {
-
-        return 0;
+    public static int getRandomInteger(int range) {
+        return rand.nextInt(range);
     }
 
     public static double getRandomDouble() {
-
-        return 0.0;
+        return rand.nextDouble();
     }
 
     public static String getRandomString() {
-
         return null;
     }
 }
