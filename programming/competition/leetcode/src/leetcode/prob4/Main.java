@@ -1,8 +1,5 @@
 package leetcode.prob4;
 
-import java.util.ListIterator;
-import java.util.Random;
-
 public class Main {
 	
 	

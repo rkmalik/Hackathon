@@ -19,16 +19,8 @@ public class Solution {
     		// Find the median and update the start and end points
     		if ((e1 - s1 + 1) / 2 == 0) {
     			
-    			
-    			
-    			
     		}
-    		
-    		
-    		
-    		
     	}
-    	
     	return 0.0;        
     }
     
