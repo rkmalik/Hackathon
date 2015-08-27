@@ -1,6 +1,5 @@
 package leetcode.prob2;
 
-import leetcode.prob2.ListNode;
 
 public class A2Add2Numbers {
 
