@@ -35,35 +35,9 @@ public class Solution {
                 stack.push(curRoot);
                 curRoot = curRoot.left;
             }
-            
+
             curRoot = stack.pop();
             
-            /**
-             * This explains the below cleaner code much better.
-             * */
-             /*if (stack.size() != 0) {
-                
-                if (curRoot.right == stack.peek()) {
-                    TreeNode top = stack.pop();
-                    stack.push(curRoot);
-                    curRoot = top;
-                } else {
-                    list.add(curRoot.val);
-                    curRoot = null;
-                }
-                
-            } else if (curRoot.right == null) {
-                list.add(curRoot.val);
-                curRoot = null;
-            } else {
-                list.add(curRoot.val);
-                curRoot = null;
-            }*/
-             
-             /**
-              * Below is more cleaner way to do the same thing.
-              * 
-              * */
             if ((stack.size() != 0) && (curRoot.right == stack.peek())) {
                     TreeNode top = stack.pop();
                     stack.push(curRoot);
