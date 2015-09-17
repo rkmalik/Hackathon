@@ -2,6 +2,8 @@ package problems.dp.prob1;
 
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 public class FibonacciNumberGenerator {
 
     private static int[] fib;
@@ -20,6 +22,9 @@ public class FibonacciNumberGenerator {
         int result = fibonacci(n);
 
         System.out.println(n + "th term in fibonacci series is " + result);
+        for(int i : fib) {
+            System.out.print(i + " ");
+        }
     }
 
     public static int fibonacci(
