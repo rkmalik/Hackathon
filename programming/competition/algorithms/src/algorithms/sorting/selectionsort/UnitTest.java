@@ -1,4 +1,4 @@
-package algorithms.sorting.insertionsort;
+package algorithms.sorting.selectionsort;
 
 import algorithms.utilities.RandomDataGenerator;
 
@@ -21,7 +21,7 @@ public class UnitTest {
             System.out.print(arr[i]  + " ");
         }
         
-        InsertionSort is = new InsertionSort();
+        SelectionSort is = new SelectionSort();
         
         is.sort(arr);
         
@@ -40,7 +40,7 @@ public class UnitTest {
             System.out.print(arr[i]  + " ");
         }
         
-        InsertionSort is = new InsertionSort();
+        SelectionSort is = new SelectionSort();
         
         is.sort(arr);
         
@@ -59,7 +59,7 @@ public class UnitTest {
             System.out.print(arr[i]  + " ");
         }
         
-        InsertionSort is = new InsertionSort();
+        SelectionSort is = new SelectionSort();
         
         is.sort(arr);
         

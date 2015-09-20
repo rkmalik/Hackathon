@@ -22,16 +22,13 @@ public class QuickSort {
         
         
         if (start < end) {
-            
-            int mid = (start + end)/2;
-            
-            partition(arr, start, end);
-            quickSort(arr, start, mid);
-            quickSort(arr, mid+1, end);         
+            int index = partition(arr, start, end);
+            quickSort(arr, start, index-1);
+            quickSort(arr, index+1, end);         
         }
     }
     
-    public void partition(int [] arr, int start, int end) {
+    public int partition(int [] arr, int start, int end) {
         
         int pivot = arr[end];
         
@@ -55,5 +52,6 @@ public class QuickSort {
         }
         arr[end] = arr[++partitionIndex];
         arr[partitionIndex] = pivot;
+        return partitionIndex;
     }
 }
