@@ -1,4 +1,4 @@
-package Zillows;
+package prob.triarytree;
 
 public class TernaryTree {
 	

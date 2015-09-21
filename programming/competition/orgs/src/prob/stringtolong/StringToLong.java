@@ -1,4 +1,4 @@
-package Zillows;
+package prob.stringtolong;
 public class StringToLong {
 
 	public static void main(String[] args) {
