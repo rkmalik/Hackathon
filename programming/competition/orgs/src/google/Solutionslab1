@@ -1,0 +1,93 @@
+http://nbviewer.ipython.org/github/xfzhou/IDS-F15/blob/master/lab1/joins.ipynb
+
+
+1
+
+Classes = pd.DataFrame({'class_id': [1, 2, 3], 'title': ['Math', 'English', 'Spanish']})
+gradeA = pd.merge(Classes, Grades, on='class_id')
+gradeA = gradeA[gradeA['grade']=='A']
+student=pd.merge(Students, gradeA, on='student_id')
+student=student[student['name']=='Alice']
+student
+
+ 	name 	student_id 	class_id 	title 	grade
+0 	Alice 	1 	1 	Math 	A
+
+-------------------------------
+
+2
+
+clusters = pd.merge(resto, resto, on='cluster')
+clusters = clusters[clusters.id_x != clusters.id_y]
+clusters = clusters[clusters.id_x < clusters.id_y]
+clusters
+
+ 	id_x 	cluster 	name_x 	city_x 	id_y 	name_y 	city_y
+4 	43 	23 	21 club 	new york 	44 	21 club 	new york city
+10 	145 	74 	abruzzi 	atlanta 	146 	abruzzi 	atlanta
+20 	184 	94 	alain rondelli 	san francisco 	185 	alain rondelli 	san francisco
+36 	186 	95 	aqua 	san francisco 	187 	aqua 	san francisco
+40 	45 	24 	aquavit 	new york 	46 	aquavit 	new york city
+46 	1 	0 	arnie morton's of chicago 	los angeles 	2 	arnie morton's of chicago 	los angeles
+51 	3 	1 	art's delicatessen 	studio city 	4 	art's deli 	studio city
+58 	47 	25 	aureole 	new york 	48 	aureole 	new york city
+62 	147 	75 	bacchanalia 	atlanta 	148 	bacchanalia 	atlanta
+79 	5 	2 	hotel bel-air 	bel air 	6 	bel-air hotel 	bel air
+
+106 rows × 7 columns
+
+---------------------------
+
+
+3
+prod = prod[prod.id_x != prod.id_y]
+prod.info()
+
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 735306 entries, 1 to 736162
+Data columns (total 8 columns):
+id_x         735306 non-null int64
+cluster_x    735306 non-null int64
+name_x       735306 non-null object
+city_x       735306 non-null object
+id_y         735306 non-null int64
+cluster_y    735306 non-null int64
+name_y       735306 non-null object
+city_y       735306 non-null object
+dtypes: int64(4), object(4)
+
+
+4
+
+d={'precision' :  p, 'recall' : r}
+df = pd.DataFrame(d)
+df.plot(kind='scatter', x='recall', y='precision');
+
+
+5. 
+
+prod['ratio'] = prod.apply(lambda r: L.ratio(r['name_x'], r['name_y']), axis=1)
+
+def raccuracy(max_ratio):
+    similar = prod[prod.ratio < max_ratio]
+    correct = float(sum(similar.cluster_x == similar.cluster_y))
+    precision = correct / len(similar)
+    recall = correct / len(clusters)
+    return (precision, recall)
+
+##thresholds = range(0.0, 1.0, .1)
+thresholds = [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1.0]
+p = []
+r = []
+
+
+for t in thresholds:
+    acc = raccuracy(t)
+    p.append(acc[0])
+    r.append(acc[1])
+    
+
+pylab.plot(thresholds, p)
+pylab.plot(thresholds, r)
+pylab.legend(['precision', 'recall'], loc='upper left')
+
