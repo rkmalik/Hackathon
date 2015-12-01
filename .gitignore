@@ -1,0 +1,17 @@
+##.gitignore
+*.recommenders
+*.classpath
+*.project
+.settings/
+*.RemoteSystemsTempFiles/
+*.o
+.*.swp
+.*.class
+.*.settings/
+.*.classpath
+.*.project
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+.metadata*/
+##programming/competition/.metadata/
