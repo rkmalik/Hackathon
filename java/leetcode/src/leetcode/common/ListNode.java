@@ -1,6 +1,6 @@
 package leetcode.common;
 public class ListNode<T>  {
-	T val;
-	ListNode<T> next;
-	ListNode(T x) { val = x; }
+	public T val;
+	public ListNode<T> next;
+	public ListNode(T x) { val = x; }
 }

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.prob126;
 
 import java.util.ArrayList;
 import java.util.HashSet;

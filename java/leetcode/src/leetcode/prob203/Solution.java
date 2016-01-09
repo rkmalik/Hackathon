@@ -1,5 +1,8 @@
 package leetcode.prob203;
-public class Solution {
+
+import leetcode.common.ListNode;
+
+/*public class Solution {
     public ListNode removeElements(ListNode head, int val) {
         ListNode node = head;
         ListNode prev = head;
@@ -27,4 +30,4 @@ public class Solution {
         
         return head;
     }
-}
+}*/

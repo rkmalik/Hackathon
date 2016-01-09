@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.prob126;
 public class Solution {
     static public int searchInsert(int[] nums, int target) {
         
