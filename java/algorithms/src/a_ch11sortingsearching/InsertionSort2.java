@@ -1,10 +1,10 @@
 package a_ch11sortingsearching;
 
-public class InsertionSort {
+public class InsertionSort2 {
 
 	public static void main(String args[]) {
 
-		int a[] = { 329, 1355, 1999, 457, 839, 436, 720, 657 };
+		int a[] = { 329, 457, 657, 839, 436, 720, 1355, 1999 };
 
 		System.out.print("Before Sorting : ");
 		for (int i : a) {
@@ -20,17 +20,19 @@ public class InsertionSort {
 
 	}
 
-	public static void insertionSort(int arr[]) {
+	public static void insertionSort(int a[]) {
 
-		for (int i = 1; i < arr.length; i++) {
-
-			int num = arr[i];
-			int j = i - 1;
-			while (j >= 0 && num < arr[j]) {
-				arr[j + 1] = arr[j];
+		for (int i = 1; i < a.length; i++) {
+			
+			
+			int num = a[i];
+			int j = i-1;
+			
+			while (j>=0 && a[j]> num) {
+				a[j+1] = a[j];
 				j--;
 			}
-			arr[j + 1] = num;
+			a[j+1] = num;
 		}
 	}
 }

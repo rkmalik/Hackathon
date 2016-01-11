@@ -4,7 +4,7 @@ public class QuickSort2 {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 22, 11, 4, 7, 15, 32, 23};
+		int arr[] = { 22, 11, 4, 7, 15, 32, 23, 11, 11};
 
 		for (int i : arr) {
 			System.out.print(i + " ");
@@ -41,25 +41,24 @@ public class QuickSort2 {
 
 	private static int partition(int[] a, int l, int h) {
 		
-		int pivot = a[(l + h) / 2];
+		int pivot = a[h];
+		int pi = l-1;
 
-		while (l <= h) {
-			while (a[l] < pivot)
-				l++;
-
-			while (a[h] > pivot)
-				h--;
-
-			if (a[l] > a[h]) {
-
-				int t = a[l];
-				a[l] = a[h];
-				a[h] = t;
-				l++;
-				h--;
+		for (int i = l; i < h; i++){
+			
+			if (a[i] <= pivot) {
+				pi++;
+				int d = a[pi];
+				a[pi] = a [i];
+				a[i] = d;
 			}
 		}
-		return l;
+
+		int d = a[++pi];
+		a[pi] = a[h];
+		a[h] = d;
+
+		return pi;
 	}
 
 }

@@ -7,9 +7,9 @@ public class UnitTest {
     public static void main(String args[]) {
         test1();
         
-        test2();
+        //test2();
         
-        test3();
+        //test3();
     }
     
     private static void test3() {
@@ -43,11 +43,12 @@ public class UnitTest {
         
         QuickSort qs = new QuickSort();
         
-        qs.sort(arr);
+        int a[] = { 22, 11, 4, 7, 15, 32, 23, 11, 11 };
+        qs.sort(a);
         
         System.out.println("\nSorted Array:");
-        for (int i = 0; i < 10; i++) {
-            System.out.print(arr[i]  + " ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]  + " ");
         }
         System.out.println("\n*************************************\n");        
     }

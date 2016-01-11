@@ -4,7 +4,7 @@ public class QuickSort {
 	
 	public static void main(String[] args) {
 
-		int arr[] = { 22, 11, 4, 7, 15, 32, 23 };
+		int arr[] = { 22, 11, 4, 7, 15, 32, 23, 11, 11 };
 
 		for (int i : arr) {
 			System.out.print(i + " ");
@@ -35,8 +35,8 @@ public class QuickSort {
 			quickSort(arr, left, index - 1);
 		}
 
-		if (right > index + 1) {
-			quickSort(arr, index + 1, right);
+		if (index < right) {
+			quickSort(arr, index, right);
 		}
 	}
 
@@ -46,19 +46,18 @@ public class QuickSort {
 
 		while (left <= right) {
 
-			while (arr[left] < pivot)
+			while (arr[left+1] < pivot)
 				left++;
 			while (arr[right] > pivot)
 				right--;
 
-			if (arr[left] > arr[right]) {
+			if (left <= right) {
 
 				int temp = arr[left];
 				arr[left] = arr[right];
 				arr[right] = temp;
-
+				left ++;
 				right--;
-				left++;
 			}
 		}
 		return left;
